@@ -28,9 +28,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee getEmployee(final int id) {
         Employee employee = null;
 
-        Optional<Employee> optional= employeeRepository.findById(id);
-        if(optional.isPresent()){
-            employee= optional.get();
+        Optional<Employee> optional = employeeRepository.findById(id);
+        if (optional.isPresent()) {
+            employee = optional.get();
         }
         return employee;
     }
@@ -38,5 +38,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void deleteEmployee(final int id) {
         employeeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Employee> findAllByName(final String name) {
+
+        List<Employee> employees = employeeRepository.findAllByName(name);
+        return employees;
     }
 }
